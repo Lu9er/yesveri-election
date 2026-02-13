@@ -14,7 +14,7 @@ services:
       - key: REDIS_URL
         value: ""
       - key: CORS_ORIGINS
-        value: '["http://localhost:5173"]'
+        value: '["https://yesveri.online","https://www.yesveri.online","http://localhost:5173"]'
       - key: DEBUG
         value: "false"
 

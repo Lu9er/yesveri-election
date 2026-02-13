@@ -21,6 +21,8 @@ class Settings(BaseSettings):
 
     # App — CORS origins (comma-separated in env, or JSON list)
     cors_origins: list[str] = [
+        "https://yesveri.online",
+        "https://www.yesveri.online",
         "http://localhost:5173",
         "http://localhost:3000",
         "http://localhost:8000",
