@@ -78,11 +78,11 @@ export default function LandingPage() {
       <section className="py-20">
         <div className="container max-w-5xl mx-auto px-4">
           <h2 className="text-2xl font-bold text-center mb-3">
-            Built for Real-World Information Challenges
+            What Makes Yesveri Different
           </h2>
           <p className="text-muted-foreground text-center mb-12 max-w-xl mx-auto">
-            Engineered to handle real-world information challenges, from
-            WhatsApp screenshots to low-bandwidth environments.
+            From WhatsApp screenshots to low-bandwidth environments,
+            every detail is designed for how people actually share information.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Card className="border shadow-sm">
@@ -160,9 +160,9 @@ export default function LandingPage() {
               <div className="h-12 w-12 rounded-lg border-2 border-[#1C7393] flex items-center justify-center mx-auto mb-4 font-bold text-[#1C7393]">
                 2
               </div>
-              <h3 className="font-semibold mb-2">AI Extraction</h3>
+              <h3 className="font-semibold mb-2">Detail Extraction</h3>
               <p className="text-xs text-muted-foreground">
-                Our system identifies names, vote counts, districts, and percentages.
+                Names, vote counts, districts, and percentages are identified automatically.
               </p>
             </div>
             <div>
