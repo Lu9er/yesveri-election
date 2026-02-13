@@ -1,0 +1,88 @@
+[
+  {
+    "claim": "Museveni won the 2021 presidential election with 58.64% of the vote",
+    "expected_alignment": "MATCHES",
+    "source": "Text claim"
+  },
+  {
+    "claim": "Bobi Wine got 3.8 million votes nationally",
+    "expected_alignment": "CONFLICTS",
+    "source": "WhatsApp forward",
+    "notes": "Actual NUP national total was ~3.475 million"
+  },
+  {
+    "claim": "Museveni won Kampala with 65% of the vote",
+    "expected_alignment": "CONFLICTS",
+    "source": "Social media post",
+    "notes": "Museveni got ~34% in Kampala, Bobi Wine won Kampala"
+  },
+  {
+    "claim": "Bobi Wine won in Kampala district",
+    "expected_alignment": "MATCHES",
+    "source": "Twitter claim"
+  },
+  {
+    "claim": "NRM won Wakiso district in 2021",
+    "expected_alignment": "CONFLICTS",
+    "source": "Facebook post",
+    "notes": "NUP/Bobi Wine won Wakiso"
+  },
+  {
+    "claim": "Museveni got 6 million votes nationally",
+    "expected_alignment": "MATCHES",
+    "source": "News article",
+    "notes": "Within 1% of 6,042,898"
+  },
+  {
+    "claim": "FDC candidate got 10% of the presidential vote",
+    "expected_alignment": "CONFLICTS",
+    "source": "Radio broadcast",
+    "notes": "Amuriat got ~3.24%"
+  },
+  {
+    "claim": "Muhammad Nsereko won Kampala Central MP seat",
+    "expected_alignment": "MATCHES",
+    "source": "News report"
+  },
+  {
+    "claim": "The weather in Kampala was sunny yesterday",
+    "expected_alignment": "CANNOT_VERIFY",
+    "source": "General conversation",
+    "notes": "Not an election claim"
+  },
+  {
+    "claim": "Election results for Bundibugyo were announced",
+    "expected_alignment": "NO_OFFICIAL_DATA",
+    "source": "WhatsApp message",
+    "notes": "No Bundibugyo data in seed"
+  },
+  {
+    "claim": "Museveni won Mbarara with over 70% of the vote",
+    "expected_alignment": "MATCHES",
+    "source": "Text claim",
+    "notes": "Museveni got 72.45% in Mbarara"
+  },
+  {
+    "claim": "Bobi Wine won nationally with 54% of the vote",
+    "expected_alignment": "CONFLICTS",
+    "source": "Social media post",
+    "notes": "Bobi Wine got 34.83% nationally; Museveni won"
+  },
+  {
+    "claim": "Joel Ssenyonyi won Nakawa Division as MP",
+    "expected_alignment": "MATCHES",
+    "source": "News article"
+  },
+  {
+    "claim": "NUP won 450,000 votes in Kampala for the presidential race",
+    "expected_alignment": "CONFLICTS",
+    "source": "WhatsApp",
+    "notes": "Actual Kampala NUP was ~314,865"
+  },
+  {
+    "claim": "Museveni lost in Jinja district",
+    "expected_alignment": "MATCHES",
+    "source": "Text claim",
+    "notes": "Museveni got 42.3% vs Bobi Wine 48.74% in Jinja"
+  }
+]

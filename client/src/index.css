@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom progress bar colors aligned with Neuravox branding */
+.progress-positive {
+  @apply bg-[#1F9CB4]; /* Light Blue */
+}
+
+.progress-neutral {
+  @apply bg-[#1C7393]; /* Mid Blue */
+}
+
+.progress-negative {
+  @apply bg-red-500;
+}
+
+:root {
+  /* Base colors from logo */
+  --dark-blue: 210 73% 17%;  /* #0C2E4C */
+  --mid-blue: 197 68% 34%;   /* #1C7393 */
+  --light-blue: 190 70% 41%; /* #1F9CB4 */
+  --pale-blue: 195 45% 75%;  /* #A3CCDC */
+  
+  /* UI Theme Variables */
+  --background: 0 0% 100%;
+  --foreground: 210 73% 17%;
+  --muted: 195 45% 95%;
+  --muted-foreground: 197 30% 40%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 210 73% 17%;
+  --card: 0 0% 100%;
+  --card-foreground: 210 73% 17%;
+  --border: 195 45% 85%;
+  --input: 195 45% 85%;
+  --primary: 197 68% 34%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 190 70% 41%;
+  --secondary-foreground: 0 0% 100%;
+  --accent: 195 45% 75%;
+  --accent-foreground: 210 73% 17%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 60 9.1% 97.8%;
+  --ring: 197 68% 34%;
+  --radius: 0.5rem;
+}
+  .dark {
+  --background: 210 73% 10%;
+  --foreground: 195 45% 95%;
+  --muted: 210 73% 17%;
+  --muted-foreground: 195 35% 80%;
+  --popover: 210 73% 12%;
+  --popover-foreground: 195 45% 95%;
+  --card: 210 73% 12%;
+  --card-foreground: 195 45% 95%;
+  --border: 210 73% 25%;
+  --input: 210 73% 25%;
+  --primary: 190 70% 41%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 197 68% 34%;
+  --secondary-foreground: 0 0% 100%;
+  --accent: 195 45% 35%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 190 70% 41%;
+  --radius: 0.5rem;
+  }
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
