@@ -11,7 +11,7 @@ dev-backend:
 
 install:
 	npm install
-	pip install -r server/requirements.txt
+	pip install -r server/requirements-python.txt
 	python -m spacy download en_core_web_sm
 
 # Database
