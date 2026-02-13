@@ -26,8 +26,8 @@ export default function LandingPage() {
             <span className="text-[#1F9CB4]">Against Reality.</span>
           </h1>
           <p className="text-lg text-[#A3CCDC] max-w-2xl mx-auto mb-10">
-            Compare claims about Uganda election results to official Electoral
-            Commission announcements. We don't decide truth — we show alignment
+            Compare election claims to official Electoral Commission
+            announcements. We don't decide truth — we show alignment
             and let you judge.
           </p>
           <div className="flex justify-center gap-4">
@@ -78,11 +78,11 @@ export default function LandingPage() {
       <section className="py-20">
         <div className="container max-w-5xl mx-auto px-4">
           <h2 className="text-2xl font-bold text-center mb-3">
-            Built for Uganda's Information Reality
+            Built for Real-World Information Challenges
           </h2>
           <p className="text-muted-foreground text-center mb-12 max-w-xl mx-auto">
-            Our system is engineered to handle real-world information challenges,
-            from WhatsApp screenshots to low-bandwidth environments.
+            Engineered to handle real-world information challenges, from
+            WhatsApp screenshots to low-bandwidth environments.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Card className="border shadow-sm">
