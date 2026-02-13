@@ -7,7 +7,8 @@ import { LoadingState } from "@/components/loading-state";
 import { EmptyState } from "@/components/empty-state";
 import { useToast } from "@/hooks/use-toast";
 import type { VerificationResponse, ImageVerificationResponse } from "@/lib/api-types";
-import { Shield, Eye, Zap, Lock } from "lucide-react";
+
+
 
 export default function Home() {
   const [result, setResult] = useState<VerificationResponse | ImageVerificationResponse | null>(null);
@@ -77,73 +78,18 @@ export default function Home() {
   };
 
   return (
-    <div className="container max-w-6xl px-4">
-      <main>
-        <ClaimForm
-          onSubmitText={handleSubmitText}
-          onSubmitImage={handleSubmitImage}
-          isVerifying={isVerifying}
-        />
+    <div className="container max-w-4xl mx-auto px-4 py-8">
+      <ClaimForm
+        onSubmitText={handleSubmitText}
+        onSubmitImage={handleSubmitImage}
+        isVerifying={isVerifying}
+      />
 
-        {isVerifying && <LoadingState />}
+      {isVerifying && <LoadingState />}
 
-        {!isVerifying && !result && <EmptyState />}
+      {!isVerifying && !result && <EmptyState />}
 
-        {!isVerifying && result && <ElectionResultsPanel result={result} />}
-      </main>
-
-      {/* About Section */}
-      <section className="mt-24 mb-16">
-        <div className="bg-gradient-to-r from-primary/10 to-background p-8 rounded-lg shadow-sm">
-          <h2 className="text-3xl font-bold mb-6">How Yesveri Works</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-xl font-semibold mb-3 flex items-center gap-2">
-                <Shield className="h-5 w-5 text-primary" />
-                Official Sources Only
-              </h3>
-              <p className="text-muted-foreground mb-4">
-                We compare claims exclusively against official Uganda Electoral
-                Commission announcements. Every data point is stored with its
-                source URL and retrieval timestamp.
-              </p>
-
-              <h3 className="text-xl font-semibold mb-3 flex items-center gap-2">
-                <Eye className="h-5 w-5 text-primary" />
-                Transparent Matching
-              </h3>
-              <p className="text-muted-foreground mb-4">
-                We don't declare truth or falsehood. We show what we extracted
-                from your claim, what the official record says, and let you
-                judge the alignment.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold mb-3 flex items-center gap-2">
-                <Zap className="h-5 w-5 text-primary" />
-                Text and Image Support
-              </h3>
-              <p className="text-muted-foreground mb-4">
-                Paste text claims directly, or upload WhatsApp screenshots and
-                social media posts. Our OCR extracts the text, then checks it
-                against EC data.
-              </p>
-
-              <h3 className="text-xl font-semibold mb-3 flex items-center gap-2">
-                <Lock className="h-5 w-5 text-primary" />
-                Privacy First
-              </h3>
-              <p className="text-muted-foreground">
-                Uploaded images are never stored. Claim text is anonymized
-                before logging and auto-deleted after 24 hours. We keep no
-                personal information.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {!isVerifying && result && <ElectionResultsPanel result={result} />}
     </div>
   );
 }

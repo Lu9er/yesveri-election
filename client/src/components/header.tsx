@@ -5,36 +5,31 @@ import neuravoxLogo from "@assets/logo.png";
 
 export function Header() {
   return (
-    <header className="mb-8 pt-4 px-4">
-      <div className="flex items-center justify-between mb-6">
+    <header className="border-b">
+      <div className="container max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-2 hover:opacity-90 transition-opacity">
-          <img src={neuravoxLogo} alt="Yesveri Logo" className="h-10 w-10" />
+          <img src={neuravoxLogo} alt="Yesveri Logo" className="h-9 w-9" />
           <div className="flex flex-col">
-            <h1 className="text-2xl font-bold leading-tight">Yesveri</h1>
-            <span className="text-xs text-muted-foreground">Uganda Election Verification</span>
+            <span className="text-xl font-bold leading-tight">Yesveri</span>
+            <span className="text-[10px] uppercase tracking-wider text-muted-foreground">Election Verification</span>
           </div>
         </Link>
 
-        <div className="flex items-center space-x-4">
-          <Button variant="ghost" asChild size="sm" className="hidden md:flex items-center">
+        <nav className="flex items-center space-x-1">
+          <Button variant="ghost" asChild size="sm">
             <Link href="/about">
-              <Info className="h-4 w-4 mr-2" />
+              <Info className="h-4 w-4 mr-1.5" />
               About
             </Link>
           </Button>
-
-          <Button variant="ghost" asChild size="sm" className="hidden md:flex items-center">
+          <Button asChild size="sm">
             <Link href="/verify">
-              <ClipboardCheck className="h-4 w-4 mr-2" />
-              Verify Claim
+              <ClipboardCheck className="h-4 w-4 mr-1.5" />
+              Verify a Claim
             </Link>
           </Button>
-        </div>
+        </nav>
       </div>
-
-      <p className="text-muted-foreground max-w-3xl">
-        Verify election claims against official Electoral Commission data. We show what we found, what the official record says, and let you judge.
-      </p>
     </header>
   );
 }
