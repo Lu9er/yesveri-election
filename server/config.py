@@ -2,10 +2,10 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    # Database
+    # Database — Render provides DATABASE_URL automatically
     database_url: str = "postgresql+asyncpg://postgres:postgres@localhost:5432/yesveri_election"
 
-    # Redis
+    # Redis — optional, app works without it
     redis_url: str = "redis://localhost:6379/0"
 
     # EC Scraper
@@ -19,8 +19,15 @@ class Settings(BaseSettings):
     tesseract_cmd: str = "/usr/bin/tesseract"
     max_image_size_mb: int = 5
 
-    # App — add your Cloudflare Pages domain here after deployment
-    cors_origins: list[str] = ["http://localhost:5173", "http://localhost:3000", "https://*.pages.dev"]
+    # App — CORS origins (comma-separated in env, or JSON list)
+    cors_origins: list[str] = [
+        "http://localhost:5173",
+        "http://localhost:3000",
+        "http://localhost:8000",
+    ]
     debug: bool = False
+
+    # Port — Render sets this automatically
+    port: int = 8000
 
     model_config = {"env_file": ".env", "env_file_encoding": "utf-8"}

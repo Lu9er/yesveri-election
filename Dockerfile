@@ -1,17 +1,3 @@
-# Stage 1: Build frontend
-FROM node:20-slim AS frontend-builder
-
-WORKDIR /app
-COPY package.json package-lock.json* ./
-RUN npm install
-
-COPY client/ client/
-COPY attached_assets/ attached_assets/
-COPY vite.config.ts tsconfig.json tailwind.config.ts postcss.config.js components.json ./
-RUN npm run build
-
-
-# Stage 2: Python runtime
 FROM python:3.11-slim
 
 # Install system dependencies
@@ -27,16 +13,14 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 RUN python -m spacy download en_core_web_sm
 
-# Copy backend code
+# Copy application code
 COPY server/ server/
 COPY scripts/ scripts/
+COPY data/ data/
 COPY alembic.ini .
 
-# Copy built frontend from stage 1
-COPY --from=frontend-builder /app/dist/public dist/public
-
-# Expose port
+# Expose port (Render sets $PORT)
 EXPOSE 8000
 
-# Run the application
-CMD ["uvicorn", "server.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Start — use $PORT if set (Render), otherwise 8000
+CMD uvicorn server.main:app --host 0.0.0.0 --port ${PORT:-8000}
