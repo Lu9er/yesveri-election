@@ -1,8 +1,16 @@
 """
 Seed the database with 2026 Uganda general election data.
 
-Data sourced from official Electoral Commission declarations (Jan 17, 2026),
-cross-referenced with Daily Monitor, New Vision, Al Jazeera, and NTV Uganda.
+Data sourced from official Electoral Commission declarations and Form DR
+documents posted on the EC's X account (@UgandaEC).
+
+Sources and SHA-256 content hashes:
+  - Presidential national totals: EC declaration Jan 17, 2026
+  - Parliamentary results: EC declaration Jan 17, 2026
+  - UPDF Males (Form DR, 28 Jan 2026):
+    sha256: 7fe3200d2eb199b0f65fed3e300e555ba966738dfd120f789c459513e78a0b42
+  - UPDF Females (Form DR, 28 Jan 2026):
+    sha256: 57a88cba186370e28f5c1d5679b13ce3c9badf749c6b17ea8dc2b94902fe9438
 """
 
 from datetime import datetime
@@ -11,7 +19,7 @@ SEED_SOURCE = {
     "name": "Uganda Electoral Commission",
     "url": "https://www.ec.or.ug",
     "description": "Official 2026 general election results declared by the Electoral Commission on January 17, 2026",
-    "content_hash": "seed_2026_v1",
+    "content_hash": "seed_2026_v2",
     "last_scraped": datetime(2026, 1, 17, 18, 0, 0),
 }
 
@@ -232,5 +240,143 @@ SEED_RESULTS = [
         "percentage": 67.82,
         "total_valid_votes": 46244,
         "is_winner": 1,
+    },
+    # ── UPDF Males Representatives to Parliament ─────────────────────
+    # Form DR declared by Returning Officer Kateeba Tumusiime Diana
+    # 28 Jan 2026, Land Forces Headquarters, Bombo
+    # SHA-256: 7fe3200d2eb199b0f65fed3e300e555ba966738dfd120f789c459513e78a0b42
+    {
+        "election_level": "parliamentary",
+        "election_year": 2026,
+        "district": "UPDF",
+        "constituency": "UPDF Males",
+        "position": "UPDF Male Representative to Parliament",
+        "candidate_name": "Okidling SAM",
+        "party": "UPDF",
+        "vote_count": 340,
+        "percentage": 18.08,
+        "total_valid_votes": 1881,
+        "is_winner": 1,
+    },
+    {
+        "election_level": "parliamentary",
+        "election_year": 2026,
+        "district": "UPDF",
+        "constituency": "UPDF Males",
+        "position": "UPDF Male Representative to Parliament",
+        "candidate_name": "Mugira James",
+        "party": "UPDF",
+        "vote_count": 303,
+        "percentage": 16.11,
+        "total_valid_votes": 1881,
+        "is_winner": 1,
+    },
+    {
+        "election_level": "parliamentary",
+        "election_year": 2026,
+        "district": "UPDF",
+        "constituency": "UPDF Males",
+        "position": "UPDF Male Representative to Parliament",
+        "candidate_name": "Kavuma Samuel",
+        "party": "UPDF",
+        "vote_count": 282,
+        "percentage": 14.99,
+        "total_valid_votes": 1881,
+        "is_winner": 0,
+    },
+    {
+        "election_level": "parliamentary",
+        "election_year": 2026,
+        "district": "UPDF",
+        "constituency": "UPDF Males",
+        "position": "UPDF Male Representative to Parliament",
+        "candidate_name": "Gonyi David Robert",
+        "party": "UPDF",
+        "vote_count": 266,
+        "percentage": 14.14,
+        "total_valid_votes": 1881,
+        "is_winner": 0,
+    },
+    {
+        "election_level": "parliamentary",
+        "election_year": 2026,
+        "district": "UPDF",
+        "constituency": "UPDF Males",
+        "position": "UPDF Male Representative to Parliament",
+        "candidate_name": "Masiko Henry Moses",
+        "party": "UPDF",
+        "vote_count": 251,
+        "percentage": 13.34,
+        "total_valid_votes": 1881,
+        "is_winner": 0,
+    },
+    {
+        "election_level": "parliamentary",
+        "election_year": 2026,
+        "district": "UPDF",
+        "constituency": "UPDF Males",
+        "position": "UPDF Male Representative to Parliament",
+        "candidate_name": "Kinalwa James",
+        "party": "UPDF",
+        "vote_count": 241,
+        "percentage": 12.81,
+        "total_valid_votes": 1881,
+        "is_winner": 0,
+    },
+    {
+        "election_level": "parliamentary",
+        "election_year": 2026,
+        "district": "UPDF",
+        "constituency": "UPDF Males",
+        "position": "UPDF Male Representative to Parliament",
+        "candidate_name": "Ssemwanga Joseph",
+        "party": "UPDF",
+        "vote_count": 198,
+        "percentage": 10.53,
+        "total_valid_votes": 1881,
+        "is_winner": 0,
+    },
+    # ── UPDF Females Representatives to Parliament ───────────────────
+    # Form DR declared by Returning Officer Kateeba Tumusiime Diana
+    # 28 Jan 2026, Land Forces Headquarters, Bombo
+    # SHA-256: 57a88cba186370e28f5c1d5679b13ce3c9badf749c6b17ea8dc2b94902fe9438
+    {
+        "election_level": "parliamentary",
+        "election_year": 2026,
+        "district": "UPDF",
+        "constituency": "UPDF Females",
+        "position": "UPDF Female Representative to Parliament",
+        "candidate_name": "Meeme Sylivia",
+        "party": "UPDF",
+        "vote_count": 314,
+        "percentage": 35.60,
+        "total_valid_votes": 882,
+        "is_winner": 1,
+    },
+    {
+        "election_level": "parliamentary",
+        "election_year": 2026,
+        "district": "UPDF",
+        "constituency": "UPDF Females",
+        "position": "UPDF Female Representative to Parliament",
+        "candidate_name": "Ikiriza Knight",
+        "party": "UPDF",
+        "vote_count": 307,
+        "percentage": 34.81,
+        "total_valid_votes": 882,
+        "is_winner": 0,
+    },
+    {
+        "election_level": "parliamentary",
+        "election_year": 2026,
+        "district": "UPDF",
+        "constituency": "UPDF Females",
+        "position": "UPDF Female Representative to Parliament",
+        "candidate_name": "Nekesa Christine Situma",
+        "party": "UPDF",
+        "vote_count": 261,
+        "percentage": 29.59,
+        "total_valid_votes": 882,
+        "is_winner": 0,
     },
 ]
