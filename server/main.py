@@ -31,16 +31,24 @@ async def lifespan(app: FastAPI):
             await conn.run_sync(Base.metadata.create_all)
         print("Database tables ensured.")
 
-        # Auto-seed if empty
-        from sqlalchemy import select, func
+        # Auto-seed if empty or if seed data version has changed
+        from sqlalchemy import select, func, delete
         from server.db.session import AsyncSessionLocal
-        from server.models.database import ElectionResult
+        from server.models.database import ElectionResult, OfficialSource
+        from server.db.seed import SEED_SOURCE, SEED_RESULTS
 
         async with AsyncSessionLocal() as db:
-            count = await db.execute(select(func.count(ElectionResult.id)))
-            if (count.scalar() or 0) == 0:
-                from server.db.seed import SEED_SOURCE, SEED_RESULTS
-                from server.models.database import OfficialSource
+            # Check if current seed version matches
+            existing_source = await db.execute(
+                select(OfficialSource).where(OfficialSource.content_hash == SEED_SOURCE["content_hash"])
+            )
+            if existing_source.scalar() is not None:
+                print("Database has current seed data, skipping seed.")
+            else:
+                # Clear old data and reseed
+                await db.execute(delete(ElectionResult))
+                await db.execute(delete(OfficialSource))
+                await db.flush()
 
                 source = OfficialSource(**SEED_SOURCE)
                 db.add(source)
@@ -48,9 +56,7 @@ async def lifespan(app: FastAPI):
                 for r in SEED_RESULTS:
                     db.add(ElectionResult(source_id=source.id, **r))
                 await db.commit()
-                print(f"Auto-seeded {len(SEED_RESULTS)} election results.")
-            else:
-                print(f"Database already has election data, skipping seed.")
+                print(f"Seeded {len(SEED_RESULTS)} election results (version: {SEED_SOURCE['content_hash']}).")
     except Exception as e:
         print(f"WARNING: Could not auto-setup database: {e}")
         print("The app will start but verification endpoints may not work until DB is ready.")

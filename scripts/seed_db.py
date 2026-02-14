@@ -8,13 +8,13 @@ import os
 # Add project root to path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from sqlalchemy import select, func
+from sqlalchemy import select, func, delete
 from server.db.session import AsyncSessionLocal, engine
 from server.models.database import Base, ElectionResult, OfficialSource
 from server.db.seed import SEED_SOURCE, SEED_RESULTS
 
 
-async def seed():
+async def seed(force: bool = False):
     # Create tables
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
@@ -23,9 +23,16 @@ async def seed():
         # Check if already seeded
         count = await db.execute(select(func.count(ElectionResult.id)))
         existing = count.scalar() or 0
-        if existing > 0:
-            print(f"Database already has {existing} election results. Skipping seed.")
+
+        if existing > 0 and not force:
+            print(f"Database already has {existing} election results. Use --force to reseed.")
             return
+
+        if existing > 0 and force:
+            print(f"Clearing {existing} existing election results...")
+            await db.execute(delete(ElectionResult))
+            await db.execute(delete(OfficialSource))
+            await db.flush()
 
         # Create source
         source = OfficialSource(**SEED_SOURCE)
@@ -42,7 +49,8 @@ async def seed():
 
 
 def main():
-    asyncio.run(seed())
+    force = "--force" in sys.argv
+    asyncio.run(seed(force=force))
 
 
 if __name__ == "__main__":
